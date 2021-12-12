@@ -1,0 +1,26 @@
+from PIL import Image
+from PIL import ImageFilter
+from PIL import ImageEnhance
+with Image.open('original.jpg') as pic_original:
+	print(pic_original.size)
+	print(pic_original.format)
+	print(pic_original.mode)
+	pic_original.show()
+	pic_gray = pic_original.convert('L')
+	pic_gray.save("gray.jpg")
+	print("\nGray Image\n")
+	print(pic_gray.size)
+	print(pic_gray.format)
+	print(pic_gray.mode)
+	pic_gray.show()
+	pic_blur = pic_original.filter(ImageFilter.BLUR)
+	pic_blur.save("blur.jpg")
+	print("\nBlur Image"\n)
+	print(pic_blur.size)
+	print(pic_blur.format)
+	print(pic_blur.mode)
+	pic_blur.show()
+	print("\nMirrow Image\n")
+	pic_mirrow = pic_original.transpose(Image.FLIP_LEFT_RIGHT)
+	pic_mirrow.save("pic_mirrow.jpg")
+	pic_mirrow.show()
