@@ -97,6 +97,21 @@ class ImageProcessor:
         self.saveImage()
         image_path = os.path.join(self.dir, self.save_dir, self.filename)
         self.showImage(image_path)
+    def do_m(self):
+        self.image = self.image.transpose(Image.FLIP_LEFT_RIGHT)
+        self.saveImage()
+        image_path = os.path.join(self.dir, self.save_dir, self.filename)
+        self.showImage(image_path)
+    def do_left(self):
+        self.image = self.image.convert('L')
+        self.saveImage()
+        image_path = os.path.join(self.dir, self.save_dir, self.filename)
+        self.showImage(image_path)
+    def do_m(self):
+        self.image = self.image.transpose(Image.FLIP_LEFT_RIGHT)
+        self.saveImage()
+        image_path = os.path.join(self.dir, self.save_dir, self.filename)
+        self.showImage(image_path)
     def showImage(self, path):
         lb_image.hide()
         pixmapimage = QPixmap(path)
@@ -112,6 +127,7 @@ def showChosenImage(self):
         image_path = os.path.join(workimage.dir, workimage.filename)
         workimage.showImage(image_path)
 btn_bw.clicked.connect(workimage.do_bw)
+btn_mirror.clicked.connect(workimage.do_m)
 lw_files.currentRowChanged.connect(showChosenImage)
 win.setLayout(main_layout)
 win.show()
