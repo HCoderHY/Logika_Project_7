@@ -6,7 +6,7 @@ from PIL import Image, ImageFilter
 app = QApplication([])
 win = QWidget()
 win.setWindowTitle('Eazy Editor')
-win.resize(700,500)
+win.resize(1000,800)
 lb_image = QLabel('Image')
 btn_dir = QPushButton('Folder')
 btn_left = QPushButton('Left')
@@ -77,12 +77,12 @@ class ImageProcessor:
         image_path = os.path.join(self.dir, self.save_dir, self.filename)
         self.showImage(image_path)
     def do_left(self):
-        self.image = self.image.transpose(Image.FLIP_LEFT_RIGHT)
+        self.image = self.image.transpose(Image.ROTATE_90)
         self.saveImage()
         image_path = os.path.join(self.dir, self.save_dir, self.filename)
         self.showImage(image_path)
     def do_right(self):
-        self.image = self.image.transpose(Image.FLIP_LEFT_RIGHT)
+        self.image = self.image.transpose(Image.ROTATE_270)
         self.saveImage()
         image_path = os.path.join(self.dir, self.save_dir, self.filename)
         self.showImage(image_path)
